@@ -4,6 +4,7 @@
 *.db-journal
 *.sass-cache
 *.orig
+.DS_Store
 config/config.ini
 config/credentials.json
 static/dist/

@@ -23,6 +23,7 @@ class Pogom(Flask):
         compress.init_app(self)
         self.json_encoder = CustomJSONEncoder
         self.route("/", methods=['GET'])(self.fullmap)
+        self.route("/install", methods=['GET'])(self.install)
         self.route("/raw_data", methods=['GET'])(self.raw_data)
         self.route("/loc", methods=['GET'])(self.loc)
         self.route("/next_loc", methods=['POST'])(self.next_loc)
@@ -41,6 +42,9 @@ class Pogom(Flask):
                                lang=config['LOCALE'],
                                is_fixed=display
                                )
+
+    def install(self):
+        return render_template('install.html')
 
     def raw_data(self):
         d = {}
